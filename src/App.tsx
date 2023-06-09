@@ -52,7 +52,7 @@ const App = () => {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
-            Minutes Saved Using ChatGPT per Day
+            Estimated Minutes Saved Using ChatGPT per Day
           </label>
           <div className="flex">
             <input
