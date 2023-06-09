@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css'
 import CallingCard from './CallingCard';
 import { Button, Tooltip } from 'flowbite-react';
 
 const App = () => {
-  const [hourlyRate, setHourlyRate] = useState(0);
-  const [minutesSaved, setMinutesSaved] = useState(0);
+  const [hourlyRate, setHourlyRate] = useState('');
+  const [minutesSaved, setMinutesSaved] = useState('');
   const gptCost = 20;
 
   const daysWorkedPerMonth = 20;
-  const timeSaved = minutesSaved * daysWorkedPerMonth;
-  const moneySaved = (hourlyRate * timeSaved / 60);
+
+  const timeSaved = parseInt(minutesSaved) ? parseInt(minutesSaved) * daysWorkedPerMonth : 0;
+  const moneySaved = (parseInt(hourlyRate) ? parseInt(hourlyRate) : 0) * timeSaved / 60;
   const netGain = moneySaved - gptCost;
-  const isDefinedAndNonZero = (val) => val !== undefined && val !== null && val !== 0;
+
+
+  const isDefinedAndNonZero = (val: string | number) => val !== undefined && val !== null && val !== 0;
 
   return (
     <div className="mx-auto max-w-lg bg-light-gray p-4 pt-24">
