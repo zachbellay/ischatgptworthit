@@ -1,0 +1,51 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.dollar {
+    display: inline-block;
+    position: relative;
+}
+
+.dollar input {
+    padding-left: 15px;
+}
+
+.dollar:before {
+    position: absolute;
+    content: "$";
+    left: 5px;
+    top: 2px;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon>i {
+    position: absolute;
+    display: block;
+    transform: translate(20%, 30%);
+    pointer-events: none;
+    width: 25px;
+    text-align: center;
+    font-style: normal;
+}
+
+.input-icon>input {
+    padding-left: 25px;
+    padding-right: 0;
+}
